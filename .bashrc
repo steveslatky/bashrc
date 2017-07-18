@@ -7,18 +7,16 @@
 # Only load Liquid Prompt in interactive shells, not from a script or from scp
 [[ $- = *i* ]] && source ~/liquidprompt/liquidprompt
 
-alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 # >>>>BEGIN ADDED BY CNCHI INSTALLER<<<< #
 BROWSER=/usr/bin/chromium
-EDITOR=/usr/bin/
+EDITOR=/usr/bin/vim
 # >>>>>END ADDED BY CNCHI INSTALLER<<<<< #
 
 alias what="ssh steveaguay@atlantis.whatbox.ca"
 alias upgrade="yaourt -Syu"
 alias sus="systemctl suspend"
 alias ace="systemctl start acestream-engine.service"
-alias fuck="eval $(thefuck --alias)"
 alias ps4="sudo ds4drv --hidraw"
 alias tux="ssh ss3725@tux.cs.drexel.edu"
 alias dev="cd ~/bb/Projects/Dev"
@@ -99,9 +97,6 @@ shopt -s cmdhist
 shopt -s histappend histreedit histverify
 shopt -s extglob       # Necessary for programmable completion.
 
-# Disable options:
-shopt -u mailwarn
-unset MAILCHECK        # Don't want my shell to warn me of incoming mail.
 
 
 #-------------------------------------------------------------
@@ -151,9 +146,9 @@ ALERT=${BWhite}${On_Red} # Bold White on red background
 
 
 
-echo -e "${BCyan}This is BASH ${BRed}${BASH_VERSION%.*}${BCyan}\
-- DISPLAY on ${BRed}$DISPLAY${NC}\n"
-date
+#echo -e "${BCyan}This is BASH ${BRed}${BASH_VERSION%.*}${BCyan}\
+#- DISPLAY on ${BRed}$DISPLAY${NC}\n"
+ date
 if [ -x /usr/games/fortune ]; then
     /usr/games/fortune -s     # Makes our day a bit more fun.... :-)
 fi
@@ -220,10 +215,6 @@ fi
 
 
 
-NCPU=$(grep -c 'processor' /proc/cpuinfo)    # Number of CPUs
-SLOAD=$(( 100*${NCPU} ))        # Small load
-MLOAD=$(( 200*${NCPU} ))        # Medium load
-XLOAD=$(( 400*${NCPU} ))        # Xlarge load
 
 # Returns system load as percentage, i.e., '40' rather than '0.40)'.
 function load()
@@ -351,12 +342,13 @@ alias df='df -kTh'
 # The 'ls' family (this assumes you use a recent GNU ls).
 #-------------------------------------------------------------
 # Add colors for filetype and  human-readable sizes by default on 'ls':
-alias ls='ls -h --color'
-alias lx='ls -lXB'         #  Sort by extension.
-alias lk='ls -lSr'         #  Sort by size, biggest last.
-alias lt='ls -ltr'         #  Sort by date, most recent last.
-alias lc='ls -ltcr'        #  Sort by/show change time,most recent last.
-alias lu='ls -ltur'        #  Sort by/show access time,most recent last.
+#alias ls='ls -h --color'
+#alias lx='ls -lXB'         #  Sort by extension.
+#alias lk='ls -lSr'         #  Sort by size, biggest last.
+#alias lt='ls -ltr'         #  Sort by date, most recent last.
+#alias lc='ls -ltcr'        #  Sort by/show change time,most recent last.
+#alias lu='ls -ltur'        #  Sort by/show access time,most recent last.
+#alias ls='exa'
 
 # The ubiquitous 'll': directories first, with alphanumeric sorting:
 alias ll="ls -lv --group-directories-first"
@@ -441,33 +433,3 @@ function extract()      # Handy Extract Program
         echo "'$1' is not a valid file!"
     fi
 }
-##############################
-##### Tiny Care Terminal #####
-##############################
-# List of accounts to read the last tweet from, comma separated
-# The first in the list is read by the party parrot.
-export TTC_BOTS='tinycarebot,selfcare_bot,magicrealismbot'
-
-# List of folders to look into for `git` commits, comma separated.
-export TTC_REPOS='~/bb/Projects/classes,~/bb/Projects/Dev'
-
-# Location/zip code to check the weather for. Both 90210 and "San Francisco, CA"
-# _should_ be ok (the zip code doesn't always work -- use a location
-# first, if you can). It's using weather.service.msn.com behind the curtains.
-export TTC_WEATHER='Philadelphia'
-
-# Set to false if you're an imperial savage. <3
-export TTC_CELSIUS=false
-
-# Unset this if you _don't_ want to use Twitter keys and want to
-# use web scraping instead.
-export TTC_APIKEYS=true
-
-# Refresh the dashboard every 20 minutes.
-export TTC_UPDATE_INTERVAL=20
-
-# Twitter api keys
-export TTC_CONSUMER_KEY='bmfh36eFvnXI78Yns6v45ruXn'
-export TTC_CONSUMER_SECRET='KtybBlsVbUS4OfvjpN4J34wHpPgFz6puoX1U3KHcjN7yZBrzT0'
-export TTC_ACCESS_TOKEN='542684397-MeszpPOeNRXPYRcgjR2i67mvRtsfWsnOp7Pn3XJV'
-export TTC_ACCESS_TOKEN_SECRET='nDkYfgcobj84vhGSZZOgd9L2f04DegTH5PFC6ZgEywkcP'
