@@ -21,18 +21,12 @@ alias ps4="sudo ds4drv --hidraw"
 alias tux="ssh ss3725@tux.cs.drexel.edu"
 alias dev="cd ~/bb/Projects/Dev"
 alias eva="exa"
-#alias done="git add * && git commit && git push"
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
 
 
 #Setting up path
-#export PATH="/home/steve/scripts:$PATH"
-export PATH="/home/steve/.cargo/bin:$PATH"
-#export GOPATH="/home/steve/bb/Projects/Dev/chatGoLang/:/usr/lib/go"
-#export PATH=$PATH:$GOPATH
-#export GOPATH=$HOME/go
-#export GOROOT=$HOME/go
-#export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export PATH="/Users/steveslatky/.cargo/bin:$PATH"
 
 #--------------------------------------------------------------
 #  Automatic setting of $DISPLAY (if not set already).
@@ -333,10 +327,10 @@ alias ..='cd ..'
 # Pretty-print of some PATH variables:
 alias path='echo -e ${PATH//:/\\n}'
 alias libpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
-export PATH=$HOME/bb/bin:$PATH
 
 alias du='du -kh'    # Makes a more readable output.
 alias df='df -kTh'
+alias desk='ssh steve@68.80.160.70'
 
 #-------------------------------------------------------------
 # The 'ls' family (this assumes you use a recent GNU ls).
